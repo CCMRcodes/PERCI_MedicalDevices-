@@ -9,7 +9,7 @@ SELECT distinct a.InpatientCPTProcedureSID, a.Sta3n, a.PatientSID, a.InpatientSI
 a.AdmitDateTime, a.DischargeDateTime,    a.CPTProcedureDateTime, a.CPTSID,
  c.PatientICN, e.CPTCode, e.CPTName, e.CPTDescription, e.CPTCategorySID
 into dflt.MedDevinptCPT20132019_SW210729 
-from [ORD_Iwashyna_201108021D].[Src].[Inpat_InpatientCPTProcedure] a 
+from [Src].[Inpat_InpatientCPTProcedure] a 
 left join [CDWWORK].[Dim].[CPT] e on a.CPTSID=e.CPTSID
 left join  Src.SPatient_SPatient c on a.patientsid=c.PatientSID
 where  a.AdmitDateTime >='2013-01-01' and a.AdmitDateTime < '2020-01-01' 
@@ -30,7 +30,7 @@ SELECT distinct  a.InpatientICDProcedureSID, a.Sta3n, a.PatientSID, a.InpatientS
 a.AdmitDateTime, a.DischargeDateTime,  a.ICD9ProcedureSID, a.ICD10ProcedureSID,  a.ICDProcedureDateTime,
   e.ICD10ProcedureCode, d.ICD9ProcedureCode, c.PatientICN
 into dflt.MedDevProc20132019_sw210608
-from [ORD_Iwashyna_201108021D].[Src].[Inpat_InpatientICDProcedure] a 
+from [Src].[Inpat_InpatientICDProcedure] a 
 left join [CDWWORK].[Dim].[ICD10Procedure] e on a.ICD10ProcedureSID=e.ICD10ProcedureSID
 left join [CDWWORK].[Dim].[ICD9Procedure] d on a.ICD9ProcedureSID=d.ICD9ProcedureSID
 left join  Src.SPatient_SPatient c on a.patientsid=c.PatientSID
@@ -42,7 +42,7 @@ SELECT distinct a.InpatientSurgicalProcedureSID, a.Sta3n, a.PatientSID, a.Inpati
 a.AdmitDateTime, a.DischargeDateTime,  a.ICD9ProcedureSID, a.ICD10ProcedureSID,  a.SurgicalProcedureDateTime,
  e.ICD10ProcedureCode, d.ICD9ProcedureCode, c.PatientICN 
 into dflt.MedDevsurgproc20132019_SW210608
-from [ORD_Iwashyna_201108021D].[Src].[Inpat_InpatientSurgicalProcedure] a 
+from [Src].[Inpat_InpatientSurgicalProcedure] a 
 left join [CDWWORK].[Dim].[ICD10Procedure] e on a.ICD10ProcedureSID=e.ICD10ProcedureSID
 left join [CDWWORK].[Dim].[ICD9Procedure] d on a.ICD9ProcedureSID=d.ICD9ProcedureSID
 left join  Src.SPatient_SPatient c on a.patientsid=c.PatientSID
